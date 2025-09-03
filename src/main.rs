@@ -25,7 +25,7 @@ async fn main() -> std::io::Result<()> {
     let log_level = config["log"].as_str().ok_or(failure::err_msg("no specified log level in the section")).unwrap();
     
     std::env::set_var("RUST_LOG", format!("actix_server={},actix_web={}", log_level, log_level)); // log level
-    env_logger::init(); // init a log
+    // env_logger::init(); // init a log
     
     let pool = db_pool().expect("failed to open db connection");
     
